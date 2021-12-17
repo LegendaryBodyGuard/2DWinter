@@ -9,7 +9,12 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody2D player;
     public Vector2 movement;
     public Animator animator;
+    public AudioSource audioSrc;
+    bool isMoving = false;
 
+    void start() {
+        audioSrc = GetComponent<AudioSource> ();
+    }
 
     // Update to handle input
     void Update()
@@ -20,6 +25,23 @@ public class PlayerControls : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (movement.x !=0 || movement.y !=0){
+            isMoving = true;
+        }
+        else{
+            isMoving = false;
+        }
+
+        if(isMoving){
+            if (!audioSrc.isPlaying){
+                audioSrc.Play();
+            }
+        }
+        else
+        {
+            audioSrc.Stop();
+        }
 
     }
     
