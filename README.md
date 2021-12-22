@@ -148,6 +148,12 @@ Neutral King/Queen: If you kill him you can rule his kingdom but when hes dead *
         - then on the left side of the kingom will be the non-beast they be racist to the beast kingdom 
         - then on the right sid of the kingdom will be the beast side of the kingdom and they will be racist to be the non-beast side
             - for the beast and non-beast there will be smaller kingdoms/towns
+
+# Real Life:
+Player's life: He will remember what will happen in the video such as his fighting stance and etc.
+- can custom player and when done customizing wake up in bed 
+- the player story will be linear and wont have much adventure and will follow the main story.
+
 # Family:
 - You can marry Male or Female or a Dragon if your a druid :D
     - make that npc like you alot to the point you get married
@@ -211,3 +217,5 @@ Neutral King/Queen: If you kill him you can rule his kingdom but when hes dead *
 
 - Small groups of 2 to 4 players
 - Enemies get stronger when there are more players
+
+
