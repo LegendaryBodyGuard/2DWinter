@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -12,7 +13,31 @@ public class PlayerControls : MonoBehaviour
     public AudioSource audioSrc;
     bool isMoving = false;
 
+    //Player health
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
+    //Player Mana
+    public int maxMana = 100;
+    public int currentMana;
+    public ManaBar manaBar;
+
+    //Player Stamina
+    public int maxStamina = 100;
+    public int currentStamina;
+    public StaminaBar staminaBar;
+
     void start() {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+
+        currentMana = maxMana;
+        manaBar.SetMaxMana(maxMana);
+
+        currentStamina = maxStamina;
+        staminaBar.SetMaxStamina(maxStamina);
+
         audioSrc = GetComponent<AudioSource> ();
     }
 
@@ -43,6 +68,12 @@ public class PlayerControls : MonoBehaviour
             audioSrc.Stop();
         }
 
+        // check to see if we can get damage
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
+
     }
     
     //Used fixed update as  Update is unreliable when it comes to physics 
@@ -51,4 +82,22 @@ public class PlayerControls : MonoBehaviour
     {
         player.MovePosition(player.position + movement * speed * Time.fixedDeltaTime);
     }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    void ManaUsage(int cost)
+    {
+        currentMana -= cost;
+        manaBar.SetMana(currentMana);
+    }
+
+    // void StaminaUsage(int energy)
+    // {
+    //     currentStamina -= energy;
+    //     staminaBar.SetStamina(currentStamina);
+    // }
 }
